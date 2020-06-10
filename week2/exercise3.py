@@ -4,15 +4,17 @@
 
 def is_odd(a_number):
     """Return True if a_number is odd, and False if a_number is even.
-
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    return None
+    if a_number%2 == 0:
+        ans = False
+    else:
+        ans = True
+    return ans
 
 
 def fix_it(moves=True, should_move=True):
     """Decide what to do.
-
     Using the engineering flowchart (in week2 folder of the CODE1161-2019
     repo engineeringFlowchart.png) for the rules, return the apropriate
     response to the input parameters.
@@ -21,36 +23,43 @@ def fix_it(moves=True, should_move=True):
     "WD-40"
     "Duct Tape"
     "No Problem"
-
     Most people write this function with 4 return statements. 
     As an extra challenge, see if you can get that down to three.
     """
-    return None
+    if (moves == True and should_move == True) or (moves == False and should_move == False):
+         return 'No Problem'
+    elif (moves == True and should_move == False):
+        return 'Duct Tape'
+    elif (moves == False and should_move == True):
+        return 'WD-40'
 
 
 def loops_1a():
     """Make 10 stars.
-
     Using a for loop
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    return None
+    star_list = []
+    for i in range (10):
+        star_list.append('*')
+    return star_list
 
 
 def loops_1c(number_of_items=5, symbol="#"):
     """Respond to variables.
-
     Using any method, return a list of number_of_items items, each one a
     string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    return None
+    hash_list=[]
+    for i in range(number_of_items):
+        hash_list.append(symbol)
+    return hash_list
 
 
 def loops_2():
     """Make a big square starfield.
-
     return a list of 10 items, each one a list of 10 items,
     each one of those, a string with exacly one star in it.
     E.g.: [
@@ -66,12 +75,17 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    return None
+    star_field=[]
+    for j in range (10):
+        star_list=[]
+        for i in range (10):
+            star_list.append('*')
+        star_field.append(star_list) #can replace star_list with just loops_1a
+    return star_field
 
 
 def loops_3():
     """Make a rising block of numbers.
-
     Return this:
     [
         ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
@@ -90,12 +104,17 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    return None
+    number_block=[]
+    for i in range (10):
+        number_row=[]
+        for j in range (10):
+            number_row.append(str(i))
+        number_block.append(number_row) 
+    return number_block
 
 
 def loops_4():
     """Make a block of numbers that rises left to right.
-
     Return this:
     [
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
@@ -110,12 +129,17 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    return None
+    number_block=[]
+    for i in range (10):
+        number_row=[]
+        for j in range (10):
+            number_row.append(str(j))
+        number_block.append(number_row) 
+    return number_block
 
 
 def loops_5():
     """Make the coordinates of the block.
-
     Return this:
     [
       ['(i0, j0)', '(i0, j1)', '(i0, j2)', '(i0, j3)', '(i0, j4)'],
@@ -129,7 +153,6 @@ def loops_5():
       ['(i8, j0)', '(i8, j1)', '(i8, j2)', '(i8, j3)', '(i8, j4)'],
       ['(i9, j0)', '(i9, j1)', '(i9, j2)', '(i9, j3)', '(i9, j4)']
     ]
-
     TIP:
     You can construct strings either by concatinating them:
         "There are " + str(8) + " green bottles"
@@ -137,12 +160,17 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    return None
+    coord_block=[]
+    for i in range (10): #can also use a list with 0-10 for i instead of range
+        coord_row=[]
+        for j in range (5):
+            coord_row.append("(i "+ str(i) +", j"+ str(j)+")")
+        coord_block.append(coord_row) 
+    return coord_block
 
 
 def loops_6():
     """Make a wedge of numbers.
-
     Return this:
     [
       ['0'],
@@ -160,12 +188,19 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    return None
+    wedge=[] 
+
+    for i in range (10): #10 rows
+        row=[] 
+        for j in range (i + 1): #i number of rows -> j=i+1 number of columns
+            row.append(j)
+        wedge.append(row)
+    return wedge
+
 
 
 def loops_7():
     """Make a pyramid.
-
     Return this:
     [
         [' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' '],
@@ -184,12 +219,18 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
+    
+    pyramid=[]
+    list=[]
+    for i in range (5):
+        for j in range (9):
+            if 
     return None
+
 
 
 def lp(some_kind_of_list, exercise_name):
     """Help to see what's going on.
-
     This is a helper function that prints your
     results to check that they are tidy.
     Note: You don't have to do anything with it.
