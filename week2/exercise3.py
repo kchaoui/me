@@ -161,7 +161,7 @@ def loops_5():
     you'll come to see the pros and cons of each over time.
     """
     coord_block=[]
-    for i in range (10): #can also use a list with 0-10 for i instead of range
+    for i in range (10): #can also form and a list with 0-10 for i instead of range
         coord_row=[]
         for j in range (5):
             coord_row.append("(i "+ str(i) +", j"+ str(j)+")")
@@ -189,14 +189,12 @@ def loops_6():
     TIP: look out for the starting condition.
     """
     wedge=[] 
-
     for i in range (10): #10 rows
         row=[] 
-        for j in range (i + 1): #i number of rows -> j=i+1 number of columns
+        for j in range (i+1): #i number of rows -> j=i+1 number of columns
             row.append(j)
         wedge.append(row)
     return wedge
-
 
 
 def loops_7():
@@ -220,12 +218,20 @@ def loops_7():
     lots of diagrams!
     """
     
+    #c=column
+    #r=row
+    row=[]
     pyramid=[]
-    list=[]
-    for i in range (5):
-        for j in range (9):
-            if 
-    return None
+    for r in range(5):
+        for c in range(9):
+            if c>r+4 or c<4-r :
+                row.append(' ')
+            else:
+                row.append('*')    
+        pyramid.append(row) 
+        row=[]
+    return pyramid   
+ 
 
 
 

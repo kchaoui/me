@@ -15,6 +15,24 @@ Exercise 2:
     Experienced a "Map object is not subscruptable" error which occured on the 28th line. 
 
 Exercise 3:
-    append() adds a single item to the exisitng list
-    can use count or i (i, j, k used as loop variables)
-    experienced difficulty with variables -> decided to restart
+    - append() adds a single item to the exisitng list
+    - can use count or i (i, j, k used as loop variables)
+    - experienced difficulty with variables -> decided to restart and this solved the issue with errors
+
+    loop 6
+        struggled converting a block into a triangle, but it made sense to think about it as the row number is equal to the number of columns in the row
+        i was able to get it printing the correct format of numbers but did not get a green tick, looking for a minor error
+    loop 7
+        5 rows and 9 columns therefore max option is col = row+4 - test to identify spaces first
+            if c>r+4 -> bottom left trapezium - almost there
+            if c<r+4 -> top right triangle x
+            if c<r-4 -> rectangle x
+            if c>r-4 -> one * x
+            if c>4-r -> top left triangle x
+            if c<4-r -> bottom right trapezium - almost there
+
+        combine two conditions, using and leads to a rectangle, but using or forms the triangle, identifies which are relevant and 
+
+
+
+        had to do a bit of googling but found out how to make a range of numbers only include odd numbers e.g (1,10,2)
