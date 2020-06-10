@@ -41,4 +41,4 @@ Exercise 3:
             if c<4-r -> bottom right trapezium - almost there
         combine two conditions, using and leads to a rectangle, but using or forms the triangle, identifies which are relevant and does not superpose
 
-Might try to work on week 3 content over the weekend so I can ask more questions to Ben next week
+Might try to work on week 3 content over the weekend so I can ask more questions to Ben next week. Also use Codeacademy to learn more functions, may go back to these exercises later and try more complex functions
