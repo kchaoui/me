@@ -2,15 +2,15 @@ TODO: Reflect on what you learned this week and what is still unclear.
 
 Remember to open 'me' folder before testing the code using python ../course/week2/tests.py
 
-Notes:
-    ascii is American Standard Code for Information Interchange
-    shout() draws from the function above
-    '!' adds a punctuation mark to the end of a printed phrase
-    " " adds a space
-    Upper() = uppercase letters
-    == operator compares the value or equality of two objects
-    tuple: serquence that is ordered and uses ()
-    certain tests require apend(str) not just an integer
+    Notes:
+        ascii is American Standard Code for Information Interchange
+        shout() draws from the function above
+        '!' adds a punctuation mark to the end of a printed phrase
+        " " adds a space
+        Upper() = uppercase letters
+        == operator compares the value or equality of two objects
+        tuple: serquence that is ordered and uses ()
+        certain tests require apend(str) not just an integer
 
 Exercise 1:
     Learned what each of the different functions do and how they may return the same output but operate in a different way
