@@ -26,7 +26,7 @@ Exercise 3:
     - the first few exercises were straightforward, it got challening once there was more than one row to be returned
 
     loop 5
-    i was able to get it printing the correct format of numbers but did not get a green tick, looking for a minor error
+        i was able to get it printing the correct format of numbers but did not get a green tick, looking for a minor error
             edit: error with the format of coordinates
     loop 6
         struggled converting a block into a triangle, but it made sense to think about it as the row number is equal to the number of columns in the row
@@ -39,7 +39,6 @@ Exercise 3:
             if c>r-4 -> one * x
             if c>4-r -> top left triangle x
             if c<4-r -> bottom right trapezium - almost there
-
         combine two conditions, using and leads to a rectangle, but using or forms the triangle, identifies which are relevant and does not superpose
 
 Might try to work on week 3 content over the weekend so I can ask more questions to Ben next week
