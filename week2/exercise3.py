@@ -164,10 +164,9 @@ def loops_5():
     for i in range (10): #can also form and a list with 0-10 for i instead of range
         coord_row=[]
         for j in range (5):
-            coord_row.append("(i "+ str(i) +", j"+ str(j)+")")
+            coord_row.append("(i" + str(i) + "," + " " + "j" + str(j) + ")")
         coord_block.append(coord_row) 
     return coord_block
-
 
 def loops_6():
     """Make a wedge of numbers.
@@ -192,8 +191,9 @@ def loops_6():
     for i in range (10): #10 rows
         row=[] 
         for j in range (i+1): #i number of rows -> j=i+1 number of columns
-            row.append(j)
+            row.append(str(j))
         wedge.append(row)
+
     return wedge
 
 
