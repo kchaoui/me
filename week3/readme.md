@@ -12,4 +12,7 @@ Exercise 1
         might ask Ben for help on this one
 
      not_number_rejector:
-        found the function isinstance(object, type) which returns true if the object is of the correct type
+        found the function isinstance(object, type) which returns true if the object is of the correct type, I don't think I know how to use this correctly
+        another funciton .isdigit worked well, I like the way the .is... functions work - will use again
+    super_asker:
+        this one was okay once I figured out how to incorporate the other function into 

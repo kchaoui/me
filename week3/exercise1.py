@@ -64,7 +64,7 @@ def stubborn_asker(low, high):
         if low < guess < high:
             number_4 = True
         elif guess< low or guess>high:
-            print ("Pick another number")
+            print ("Not quite, pick another number")
     return int(guess)
 
 
@@ -80,11 +80,14 @@ def not_number_rejector(message):
 
     while number_5 == False:
         ask = str(input("Pick a number: "))
-        if isinstance(ask,int):
-            print ("yay!")
+        if ask.isdigit():
+            print("great, it's a number!")
+            return int(ask)
         else:
-            print ("Try again")
-    return int(ask)
+            print ("Try again, that's not a number")
+    
+
+    
 
 def super_asker(low, high):
     """Robust asking function.
@@ -95,8 +98,16 @@ def super_asker(low, high):
     amount of code.
     """
 
-    
-    return None
+    number_6 = False
+
+    while number_6 == False:
+        guess = not_number_rejector("Pick a number: ") #makes the variable guess run with the not_number_rejection function
+        if low < guess < high:
+            number_6 = True
+            print ("That is correct!")
+            return guess
+        elif guess< low or guess>high:
+            print ("But it is not within range")
 
 
 if __name__ == "__main__":
