@@ -63,6 +63,7 @@ def stubborn_asker(low, high):
         guess = int(input("Pick a number: "))
         if low < guess < high:
             number_4 = True
+            print ("Perfect!")
         elif guess< low or guess>high:
             print ("Not quite, pick another number")
     return int(guess)
