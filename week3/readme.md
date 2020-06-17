@@ -20,7 +20,7 @@ list(range(10)) -> [0,1,2,3,4,5,6,7,8,9] 0 to 9 and not 1 to 10
         another funciton .isdigit worked well, I like the way the .is... functions work - will use again
     super_asker:
         this one was okay once I figured out how to incorporate the other function into the super_asker
-        I filled around with the printing function to make sure that it outputted the correct phrases
+        I fiddled around with the printing function to make sure that it outputted the correct phrases
         need to learn how to use Try and Exception
 
 ### Exercise 2:
