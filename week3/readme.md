@@ -54,26 +54,11 @@ Exercise 4:
     The issues I had with this code is that everytime I tested it, it would only guess 50 and try one time. The debugger didn't come up with anything because there was nothing technically wrong with the code, it just was not working correctly.
         edit: I looked through some examples and the position of the 'break' is important, I shifted it forward so it only stops the function once it is correct
 
+    I tried to complete this code using the guessed = False function but I could not get it to work properly, mainly due to the code taking too many tries to get the correct answer. I will probably look into this further later on. This is why i used the high>low as part of the while function.
+
 Homework:
-
-
-
-tries = 0
-    guess = 0
-
-    upper = high
-    lower = low
-
-    guessed = False
-
-    while not guessed:
-        tries += 1 #also could be written as tries = tries+1
-        guess = int((upper+lower)/2)
-        print(guess)
-        if guess == actual_number:
-            guessed = True
-        elif guess>actual_number:
-            lower = guess + 1
-        elif guess<actual_number:
-            upper = guess - 1 
-    return {"guess": guess, "tries": tries}
+Looking through everyone's code, there are some are that easier to understand especially for someone who has very basic coding knowledge. 
+        Most codes used a combination of 4-i and 4+1, the reasoning behind this is pretty straight forward but a code like FlimEden's is a bit more complex and I would need to do a bit of googling to understand it
+        Some of the shorter codes are more challenging to understand as the functions are less 'spoon fed' while reading
+    
+     
