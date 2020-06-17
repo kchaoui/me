@@ -12,7 +12,15 @@ def loop_ranger(start, stop=None, step=1):
     The look up the docs for range(), you can answer this with just the range 
     function, but we'd like you to do it the long way, probably using a loop.
     """
-    return None
+    #copy what the range function does using a different loop function
+
+    number_1=[]
+    x=start #x has a starting value
+    while x<stop: 
+        print(x)
+        number_1.append(x)
+        x=x+step
+    return number_1
 
 
 def lone_ranger(start, stop, step):
@@ -20,7 +28,11 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    return None
+
+    number_2=[]
+    for i in range(start,stop,step):
+        number_2.append(i)
+    return number_2
 
 
 def two_step_ranger(start, stop):
@@ -29,7 +41,11 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """
-    return None
+    
+    number_3=[]
+    for i in range(start,stop,2): #include 2 in the range func so step size always = 2
+        number_3.append(i)
+    return number_3
 
 
 def stubborn_asker(low, high):
@@ -40,7 +56,16 @@ def stubborn_asker(low, high):
 
     Look up the docs for input
     """
-    return None
+    
+    number_4 = False
+
+    while number_4 == False:
+        guess = int(input("Pick a number: "))
+        if low < guess < high:
+            number_4 = True
+        elif guess< low or guess>high:
+            print ("Pick another number")
+    return int(guess)
 
 
 def not_number_rejector(message):
@@ -50,6 +75,9 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
+
+
+
     return None
 
 
