@@ -76,10 +76,15 @@ def not_number_rejector(message):
     When you do get a number, return it.
     """
 
+    number_5 = False
 
-
-    return None
-
+    while number_5 == False:
+        ask = str(input("Pick a number: "))
+        if isinstance(ask,int):
+            print ("yay!")
+        else:
+            print ("Try again")
+    return int(ask)
 
 def super_asker(low, high):
     """Robust asking function.
@@ -89,6 +94,8 @@ def super_asker(low, high):
     Try to call at least one of the other functions to minimise the
     amount of code.
     """
+
+    
     return None
 
 
