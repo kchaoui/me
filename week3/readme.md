@@ -1,5 +1,8 @@
 TODO: Reflect on what you learned this week and what is still unclear.
 
+python ../course/week3/tests.py
+
+
 Exception -> needs a capital E
 
 range(10) -> range(0,10) is a range object
@@ -35,15 +38,8 @@ Exercise 2:
  Exercise 3:
     Syntax Notes:
     \n = new line
+    I've figured out how to incorporate the upper and lower bound inputs into the game and it works. 
+        Now I need to add the non integer value paramter into it, most likely using the non_number_rejector from exercise 1
+        Also need to create a rule that will not accept if the lower=upper bound
 
-
-
-
-    print("\nWelcome to the guessing game!")
-    print("A number between _ and _ ?")
-    lowerBound = input("Enter a lower bound: ")
-    print("OK then, a number between {lower} and _ ?".format(lower=lowerBound)
-    lowerBound = int(lowerBound)
-    upperBound = input("Enter an upper bound: ")
-    print("OK then, a number between {lower} and {upper} ?".format(lower=lowerBound, upper=upperBound)
-    upperBound = int(upperBound)
+        Edit: main issues was the text that was printing was coming from the not_number_rejector rather than the guessing game, needed to change "pick a number" to message so it references the game's print code

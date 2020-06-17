@@ -29,8 +29,18 @@ def advancedGuessingGame():
 
     print("\nWelcome to the guessing game!")
     print("A number between _ and _ ?")
-    lowerBound = input("Enter a lower bound: ") 
-    upperBound = input("Enter an upper bound: ")
+    lowerBound = not_number_rejector("Enter a lower bound: ") 
+
+    #need to ensure that upper bound > lower bound, use stubborn_asker for reference
+    guess = False 
+
+    while guess == False:
+      upperBound = not_number_rejector("Enter an upper bound: ")
+      if upperBound > lowerBound:
+          guess=True
+      else:
+          print ("Pick a higher number")
+        
     print("OK then, guess a number between {lower} and {upper} ?".format(lower=lowerBound,upper=upperBound))
     lowerBound = int(lowerBound)
     upperBound = int(upperBound)
@@ -40,7 +50,7 @@ def advancedGuessingGame():
     guessed = False 
 
     while not guessed:
-        guessedNumber = int(input("Guess a number: ")) 
+        guessedNumber = not_number_rejector("Guess a number: ") 
         print("You guessed {},".format(guessedNumber),) 
         if guessedNumber == actualNumber: 
             print("Finally! You got it!! It was {}".format(actualNumber))
@@ -53,6 +63,21 @@ def advancedGuessingGame():
     # the tests are looking for the exact string "You got it!". Don't modify that!
 
 
+
+
+
+
+
+def not_number_rejector(message):
+  
+    number_5 = False
+
+    while number_5 == False:
+        ask = str(input(message)) #pick a number
+        if ask.isdigit():
+            return int(ask)
+        else:
+            print ("Try again, that's not a number")
 
 
 
