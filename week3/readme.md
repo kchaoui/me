@@ -41,7 +41,7 @@ list(range(10)) -> [0,1,2,3,4,5,6,7,8,9] 0 to 9 and not 1 to 10
     
     I've figured out how to incorporate the upper and lower bound inputs into the game and it works. 
         Now I need to add the non integer value paramter into it, most likely using the non_number_rejector from exercise 1
-        Also need to create a rule that will not accept if the lower=upper bound
+        Also need to create a rule that will not accept if the lower>upper bound
 
         Edit: main issues was the text that was printing was coming from the not_number_rejector rather than the guessing game, needed to change "pick a number" to message so it references the game's print code
 
