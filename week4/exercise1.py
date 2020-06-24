@@ -129,11 +129,20 @@ def pokedex(low=1, high=5):
     """
     template = "https://pokeapi.co/api/v2/pokemon/{id}"
 
-    url = template.format(id=5)
-    r = requests.get(url)
-    if r.status_code is 200:
-        the_json = json.loads(r.text)
-    return {"name": None, "weight": None, "height": None}
+    tall = False
+    for id in range(low, high):
+        url = template.format(id=id)
+        r = requests.get(url)
+        if r.status_code is 200:
+            the_json = json.loads(r.text)
+            taller = the_json["height"]
+            if taller > tall:
+                tall = taller
+                name = the_json["name"]
+                weight = the_json["weight"]
+                height = the_json["height"]
+
+    return {"name": name, "weight": weight, "height": height}
 
 
 def diarist():
@@ -150,7 +159,17 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
-    pass
+
+    mode = "r"
+    laser = open(LOCAL + "/Trispokedovetiles(laser).gcode", mode)
+    response = laser.read()
+    M10P1_Count = response.count("M10 P1")
+    print(M10P1_Count)
+
+    mode2 = "w"
+    new_file = open("week4/lasers.pew", mode2)
+    new_file.write(str(M10P1_Count))
+    new_file.close()
 
 
 if __name__ == "__main__":
