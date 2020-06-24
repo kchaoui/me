@@ -36,14 +36,24 @@ def get_some_details():
     json_data = open(LOCAL + "/lazyduck.json").read()
 
     data = json.loads(json_data)
-    return {"lastName": None, "password": None, "postcodePlusID": None}
+    lastName = data["results"][0]["name"]["last"]
+    password = data["results"][0]["login"]["password"]
+    postcodePlusID = int(data["results"][0]["location"]["postcode"]) + int(
+        data["results"][0]["id"]["value"]
+    )
+
+    return {
+        "lastName": lastName,
+        "password": password,
+        "postcodePlusID": postcodePlusID,
+    }
 
 
 def wordy_pyramid():
     """Make a pyramid out of real words.
 
     There is a random word generator here:
-    http://api.wordnik.com/v4/words.json/randomWords?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5&minLength=10&maxLength=10&limit=1
+    https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word 
     The arguments that the generator takes is the minLength and maxLength of the word
     as well as the limit, which is the the number of words. 
     Visit the above link as an example.
@@ -74,7 +84,33 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &minLength=
     """
-    pass
+    source = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={length}"
+
+    # make two lists, one with odd length words increasing and the other with even length words decreasing ie. increasing but reversed.
+    # use .extent to create one list from the two
+
+    pyramid = []
+    odd_length = []
+    even_length = []
+
+    minlength = 3
+    maxlength = 21  # needs to be 21 to include the 20 character long words
+
+    for i in range(minlength, maxlength):
+        source_with_length = source.format(length=i)
+        req = requests.get(source_with_length)
+        wordstring = str(req.content)
+        if int(i) % 2 == 0:
+            even_output = wordstring.split("'")
+            even_length.append(even_output[1])
+        else:
+            odd_output = wordstring.split("'")
+            odd_length.append(odd_output[1])
+
+    even_length.reverse()
+    pyramid.extend(odd_length)
+    pyramid.extend(even_length)
+    return pyramid
 
 
 def pokedex(low=1, high=5):
