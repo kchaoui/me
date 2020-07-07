@@ -154,9 +154,9 @@ def tell_me_about_this_right_triangle(facts_dictionary):
         perimeter=facts_dictionary["perimeter"],
         aspect=facts_dictionary["aspect"],
         units=facts_dictionary["units"],
-    ) #creates and output of text with details about the triangle
+    )  # creates and output of text with details about the triangle
 
-    #references the diagrams above according to the type of aspect
+    # references the diagrams above according to the type of aspect
     if facts_dictionary["aspect"] == "tall":
         diagram = tall.format(**facts_dictionary)
     elif facts_dictionary["aspect"] == "wide":
@@ -183,36 +183,8 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
 
 
 def wordy_pyramid(api_key):
-    """
-    baseURL = (
-        "http://api.wordnik.com/v4/words.json/randomWords?"
-        "api_key={api_key}"
-        "&minLength={length}"
-        "&maxLength={length}"
-        "&limit=1"
-    )
-    pyramid_list = []
-    for i in range(3, 21, 2):
-        url = baseURL.format(api_key="", length=i)
-        r = requests.get(url)
-        if r.status_code is 200:
-            message = r.json()[0]["word"]
-            pyramid_list.append(message)
-        else:
-            print("failed a request", r.status_code, i)
-    for i in range(20, 3, -2):
-        url = baseURL.format(api_key="", length=i)
-        r = requests.get(url)
-        if r.status_code is 200:
-            message = r.json()[0]["word"]
-            pyramid_list.append(message)
-        else:
-            print("failed a request", r.status_code, i)
-    return pyramid_list
-    """
-   
-   
-   import requests
+
+    import requests
 
     source = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={length}"
 
@@ -221,24 +193,49 @@ def wordy_pyramid(api_key):
     even_length = []
 
     minlength = 3
-    maxlength = 21
+    maxlength = 21  # needs to be 21 to include the 20 character long words
 
     for i in range(minlength, maxlength):
         source_with_length = source.format(length=i)
         req = requests.get(source_with_length)
-        if req.status_code is 200:
-            wordstring = str(req.content)
-            if int(i) % 2 == 0:
-                even_output = wordstring.split("'")
-                even_length.append(even_output[1])
-            else:
-                odd_output = wordstring.split("'")
-                odd_length.append(odd_output[1])
+        wordstring = str(req.content)
+        if int(i) % 2 == 0:
+            even_output = wordstring.split("'")
+            even_length.append(even_output[1])
+        else:
+            odd_output = wordstring.split("'")
+            odd_length.append(odd_output[1])
 
     even_length.reverse()
     pyramid.extend(odd_length)
     pyramid.extend(even_length)
     return pyramid
+
+    # baseURL = (
+    #     "http://api.wordnik.com/v4/words.json/randomWords?"
+    #     "api_key={api_key}"
+    #     "&minLength={length}"
+    #     "&maxLength={length}"
+    #     "&limit=1"
+    # )
+    # pyramid_list = []
+    # for i in range(3, 21, 2):
+    #     url = baseURL.format(api_key="", length=i)
+    #     r = requests.get(url)
+    #     if r.status_code is 200:
+    #         message = r.json()[0]["word"]
+    #         pyramid_list.append(message)
+    #     else:
+    #         print("failed a request", r.status_code, i)
+    # for i in range(20, 3, -2):
+    #     url = baseURL.format(api_key="", length=i)
+    #     r = requests.get(url)
+    #     if r.status_code is 200:
+    #         message = r.json()[0]["word"]
+    #         pyramid_list.append(message)
+    #     else:
+    #         print("failed a request", r.status_code, i)
+    # return pyramid_list
 
 
 def get_a_word_of_length_n(length):
