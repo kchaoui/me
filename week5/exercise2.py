@@ -101,9 +101,9 @@ def abba(source="abba", guard=3):
         """
 
         if letter == "a":
-            return "bba"
+            return "aobaobbba"  # bba  bbaoaaob aobaobb baaobaobbbaaobaob bbaaobaobbba
         elif letter == "b":
-            return "aob"
+            return "bbaoaaob"  # aob
         elif letter == "o":
             return "oa"
         else:

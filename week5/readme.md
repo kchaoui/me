@@ -11,3 +11,5 @@ These exercises were okay to complete once I understoof what I was trying to do
 
     ** edits the dictionary
     I'm still stuck on wordy_pyramid, I keep on getting the api_key message when I run the test.
+
+python ../course/new_exercise_getter.py   
