@@ -92,7 +92,7 @@ def abba(source="abba", guard=3):
                 and so on...
     """
 
-    def apply_rules(letter, guard):
+    def apply_rules(letter):
         """Control the substitution.
 
         You need to change these substitutions to make it work.
@@ -101,9 +101,9 @@ def abba(source="abba", guard=3):
         """
 
         if letter == "a":
-            return "aobaobbba"  # bba  bbaoaaob aobaobb baaobaobbbaaobaob bbaaobaobbba
+            return "bba"
         elif letter == "b":
-            return "bbaoaaob"  # aob
+            return "aob"
         elif letter == "o":
             return "oa"
         else:

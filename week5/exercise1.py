@@ -182,33 +182,12 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
         print("You're an odd one, you don't want anything!")
 
 
-def wordy_pyramid(api_key):
-
-    import requests
-
-    source = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={length}"
+def wordy_pyramid():
 
     pyramid = []
-    odd_length = []
-    even_length = []
+    word_length = [3, 5, 7, 9, 11, 13, 15, 17, 19, 20, 18, 16, 14, 12, 10, 8, 6, 4]
+    pyramid.extend(list_of_words_with_lengths(word_length))
 
-    minlength = 3
-    maxlength = 21  # needs to be 21 to include the 20 character long words
-
-    for i in range(minlength, maxlength):
-        source_with_length = source.format(length=i)
-        req = requests.get(source_with_length)
-        wordstring = str(req.content)
-        if int(i) % 2 == 0:
-            even_output = wordstring.split("'")
-            even_length.append(even_output[1])
-        else:
-            odd_output = wordstring.split("'")
-            odd_length.append(odd_output[1])
-
-    even_length.reverse()
-    pyramid.extend(odd_length)
-    pyramid.extend(even_length)
     return pyramid
 
     # baseURL = (
@@ -268,9 +247,9 @@ def list_of_words_with_lengths(list_of_lengths):
             wordstring = str(req.content)
             word_output = wordstring.split("'")
             output.append(word_output[1])
-        return output
+    return output
 
 
-if __name__ == "__main__":
-    do_bunch_of_bad_things()
-    wordy_pyramid("a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+# if __name__ == "__main__":
+#    do_bunch_of_bad_things()
+#    wordy_pyramid("a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
