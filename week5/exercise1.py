@@ -65,16 +65,19 @@ def countdown(message, start, stop, completion_message):
 # The stub functions are made for you, and each one is tested, so this should
 # hand hold quite nicely.
 def calculate_hypotenuse(base, height):
+    """ Calculate the hypotenuse of a right angled triangle"""
     hypotenuse = (base ** 2 + height ** 2) ** (1 / 2)
     return hypotenuse
 
 
-def calculate_area(base, height):
+def calculate_area(base=float, height=float):
+    """ Calculate the area of the triangle """
     area = (1 / 2) * (base * height)
     return area
 
 
 def calculate_perimeter(base, height):
+    """ Calculate the perimeter of a right angled triangle"""
     perimeter = calculate_hypotenuse(base, height) + base + height
     return perimeter
 
