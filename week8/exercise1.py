@@ -113,7 +113,7 @@ def put_behind_bars(input_string="very naughty boy"):
     return barslist
 
 
-def pet_filter(letter="a"):
+def pet_filter(letter="p"):
     """Return a list of pets whose name contains the character 'letter'"""
     # fmt: off
     pets = [
@@ -128,7 +128,7 @@ def pet_filter(letter="a"):
     # fmt: on
     filtered = []
     for pet in pets:
-        if pet.find(letter) > 0:
+        if pet.find(letter) >= 0:
             filtered.append(pet)
         else:
             pass
