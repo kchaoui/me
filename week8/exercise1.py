@@ -113,7 +113,7 @@ def put_behind_bars(input_string="very naughty boy"):
     return barslist
 
 
-def pet_filter(letter="p"):
+def pet_filter(letter="a"):
     """Return a list of pets whose name contains the character 'letter'"""
     # fmt: off
     pets = [
@@ -197,11 +197,12 @@ def make_filler_text_dictionary():
             wordstring = str(req.content)
             output = wordstring.split("'")
             wd[wordlength].append(output[1])
+            qty += 1
 
     return wd
 
 
-def random_filler_text(number_of_words=200):
+def random_filler_text(number_of_words=5):
     """Make a paragraph of random filler text.
     Using the dictionary returned by make_filler_text_dictionary, make a
     paragraph of text using randomly picked words. Each word should be a random
@@ -216,17 +217,16 @@ def random_filler_text(number_of_words=200):
     my_dict = make_filler_text_dictionary()
 
     wordcount = 0
-    word = []
+    words = []
     while number_of_words > wordcount:
         wordlength = random.randint(3, 7)
-        wordcount = random.randint(0, 2)
-        word.append(my_dict[wordlength][wordcount])
+        wordnumber = random.randint(0, 2)
+        words.append(my_dict[wordlength][wordnumber])
         wordcount += 1
-    return word
-    # return " ".join(words)
+    return " ".join(words)
 
 
-def fast_filler(number_of_words=200):
+def fast_filler(number_of_words=5):
     """Reimplement random_filler_text.
     This time, the first time the code runs, save the dictionary returned
     from make_filler_text_dictionary to a file.
@@ -243,9 +243,29 @@ def fast_filler(number_of_words=200):
     import os
     import json
 
+    words = []
     fname = "dict_racey.json"
 
-    return None
+    if os.path.isfile(fname):
+        print("dictionary available")
+
+    else:
+        new_dict = make_filler_text_dictionary()
+        open_file = open(fname, "w")
+        new_file = json.dumps(new_dict)
+        open_file.write(new_file)
+
+    open_file = open(fname, "r")
+    input = open_file.read()
+    the_dict = json.loads(input)
+
+    for i in range(0, number_of_words):
+        wordlength = str(random.randint(3, 7))
+        wordnumber = random.randint(0, 2)
+        words.append(the_dict[wordlength][wordnumber].capitalize())
+
+    output = " ".join(words) + "."
+    return output
 
 
 if __name__ == "__main__":
