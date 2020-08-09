@@ -13,6 +13,11 @@ Also I should look into mapping county locations on a map, and a breakdown of fa
 * printing out the full table:
         \n  with pd.option_context('display.max_rows', None, 'display.max_columns', None): 
         \n   print(dfmerged_data) 
-* some forms of plotting work better when the index is part of the dataset and other do not, I needed to use the .copy function to duplicate the dataset and make changes without altering the original
+* some forms of plotting work better when the index is part of the dataset and other do not, I needed to use the .copy function to duplicate the dataset and make changes without altering the original. I struggled a lot with this section before I learnt about .copy because when I would change the index, all of my plots would work except one and vice versa.
 
 
+I wanted to make a tree map with subcategories but to have it with the same colour format as I have currently, this would be quite complex to do as only plot.ly can create this. The following code did not work as intended:
+            fig = px.treemap(categorised, 
+                 path=['Category', 'Location Type'], 
+                 values='Facility Counts',
+                 color_discrete_sequence=stackedcolour)
